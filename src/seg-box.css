@@ -1,0 +1,55 @@
+@import "./css/mixins.css";
+
+:host {
+  display: block;
+  @mixin wh 100%;
+}
+.box {
+  box-sizing: border-box;
+  position: relative;
+  @mixin wh 100%;
+  overflow: hidden;
+  &.leaf {
+    border-radius: 0.5rem;
+    border: var(--border, 1px solid #222);
+  }
+
+  & > seg-handle {
+    @mixin absPos 0, 0, auto, auto;
+    cursor: pointer;
+  }
+
+  & > seg-curtain {
+    @mixin absPos 0, 0, 0, 0;
+    @mixin flexy center, center;
+  }
+
+  .icon-merge {
+    position: relative;
+    height: min(50%, 5rem);
+    &.y {
+      transform: rotate(-90deg);
+    }
+    & > * {
+      height: 100%;
+    }
+  }
+
+  .resizer {
+    --resize: var(--resizer-stroke, 4px);
+    @mixin flexy center, center;
+    &.y {
+      height: var(--resize);
+    }
+    & > .pill {
+      @mixin circle var(--resize);
+      height: 3rem;
+      background: var(--seg-box-resizer-background, rgba(255, 255, 255, 0.3));
+      cursor: col-resize;
+      &.y {
+        transform: rotate(90deg);
+        cursor: row-resize;
+      }
+    }
+  }
+}

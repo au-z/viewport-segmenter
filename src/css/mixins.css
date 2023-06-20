@@ -1,0 +1,43 @@
+@define-mixin wh $w: auto, $h: $w {
+  width: $w;
+  height: $h;
+}
+
+@define-mixin minwh $w: auto, $h: $w {
+  min-width: $w;
+  min-height: $h;
+}
+
+@define-mixin maxwh $w: auto, $h: $w {
+  max-width: $w;
+  max-height: $h;
+}
+
+@define-mixin circle $r {
+  @mixin wh $r;
+  border-radius: $r;
+}
+
+@define-mixin absPos $t: auto, $r: auto, $b: auto, $l: auto {
+  position: absolute;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+@define-mixin flexy $justify: flex-start, $align: flex-start, $direction: row {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@define-mixin shadow $z: 1, $size: 1, $r: 0, $g: 0, $b: 0 {
+  box-shadow: 0 calc(2.8px * $size) calc(2.2px * $size) rgba($r, $g, $b, calc($z * 0.034)),
+    0 calc(6.7px * $size) calc(5.3px * $size) rgba($r, $g, $b, calc($z * 0.048)),
+    0 calc(12.5px * $size) calc(10px * $size) rgba($r, $g, $b, calc($z * 0.06)),
+    0 calc(22.3px * $size) calc(17.9px * $size) rgba($r, $g, $b, calc($z * 0.072)),
+    0 calc(41.8px * $size) calc(33.4px * $size) rgba($r, $g, $b, calc($z * 0.086)),
+    0 calc(100px * $size) calc(80px * $size) rgba($r, $g, $b, calc($z * 0.12));
+}

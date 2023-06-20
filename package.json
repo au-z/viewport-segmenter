@@ -1,0 +1,20 @@
+{
+  "name": "@auzmartist/viewport-segmenter",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5599",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "hybrids": "^8.0.10",
+    "@auzmartist/hybrids-helpers": "^0.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "vite": "^3.0.7",
+    "postcss": "^8.4.6",
+    "autoprefixer": "^10.4.2",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.0"
+  }
+}

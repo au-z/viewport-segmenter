@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=1024, initial-scale=1.0" />
+    <script type="module" src="./src/seg-box.ts"></script>
+    <title>Viewport Segmenter</title>
+    <style>
+      html,
+      body {
+        background: #42484f;
+        color: white;
+      }
+      seg-box {
+        width: calc(100vw - 1rem);
+        height: calc(100vh - 1rem);
+      }
+    </style>
+  </head>
+  <body>
+    <seg-box name="root" save>
+      <pre><code id="output"></code></pre>
+    </seg-box>
+
+    <script>
+      const box = document.querySelector("seg-box");
+      const output = document.querySelector("code#output");
+      let windows = {};
+      box.addEventListener("seg", (e) => {
+        windows = e.detail
+        console.log(windows);
+        output.innerText = JSON.stringify(windows, null, 2)
+      });
+    </script>
+  </body>
+</html>
